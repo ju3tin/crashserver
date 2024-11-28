@@ -4,19 +4,7 @@ const TIME_PER_ROUNDS = 5;
 const TIME_AFTER_ROUND = 2;
 const DELAY_PER_DELTA_MULT = 0.002;
 
-const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Define a GET endpoint
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
-
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
 
 
 const WebSocket = require('ws');
