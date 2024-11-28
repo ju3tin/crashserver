@@ -4,11 +4,11 @@ const TIME_PER_ROUNDS = 5;
 const TIME_AFTER_ROUND = 2;
 const DELAY_PER_DELTA_MULT = 0.002;
 
-
+const PORT = process.env.PORT || 3000;
 
 
 const WebSocket = require('ws');
-const wsServer = new WebSocket.Server({port: 8080});
+const wsServer = new WebSocket.Server({ port: PORT });
 
 wsServer.on('connection', onConnect);
 function wsSendRoundPreparing(userClient){
