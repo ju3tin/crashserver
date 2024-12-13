@@ -6,7 +6,7 @@ const DELAY_PER_DELTA_MULT = 0.002;
 
 const PORT = process.env.PORT || 3000;
 
-const allowedOrigins = ['*'];
+const allowedOrigins = ['https://fishandsol.vercel.app'];
 
 
 
