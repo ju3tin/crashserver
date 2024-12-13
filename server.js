@@ -6,9 +6,26 @@ const DELAY_PER_DELTA_MULT = 0.002;
 
 const PORT = process.env.PORT || 3000;
 
+const allowedOrigins = ['*'];
+
+
 
 const WebSocket = require('ws');
-const wsServer = new WebSocket.Server({ port: PORT });
+const wsServer = new WebSocket.Server({ 
+  port: PORT,
+  verifyClient: (info, done) => {
+    const origin = info.origin;
+
+    // Check if the origin is in the allowed list
+    if (allowedOrigins.includes(origin)) {
+      done(true); // Allow the connection
+    } else {
+      console.log(`Blocked origin: ${origin}`);
+      done(false); // Reject the connection
+    }
+  },
+});
+
 
 wsServer.on('connection', onConnect);
 function wsSendRoundPreparing(userClient){
